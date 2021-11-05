@@ -18,7 +18,7 @@ def index():
     try:
         sample_db = pymysql.connect(
             user='root', 
-            password='jjms7794',
+            password='개인비밀번호입력',
             host='localhost',
             database='web_test'
         )
@@ -58,7 +58,7 @@ def chart():
     try:
         sample_db = pymysql.connect(
             user='root', 
-            password='jjms7794',
+            password='개인비밀번호입력',
             host='localhost',
             database='web_test'
         )
@@ -91,7 +91,7 @@ def paging():
     try:
         sample_db = pymysql.connect(
             user='root', 
-            password='jjms7794',
+            password='개인비밀번호입력',
             host='localhost',
             database='web_test'
         )
