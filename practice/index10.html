@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src = 'http://code.jquery.com/jquery-latest.js'></script>
+    <style>
+        p {
+            color: blue;
+            margin : 8px;
+        }
+    </style>
+</head>
+<body>
+    <input type="password">         // value="some text"
+    <p></p>
+    <script>
+        $('input').keyup(function(){        //  key가 눌렸다 땔 때를 의미함.
+            var value = $(this).val();
+            $('p').text(value);
+        })
+    </script>
+</body>
+</html>

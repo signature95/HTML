@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src = 'http://code.jquery.com/jquery-latest.js'></script>
+
+</head>
+<body>
+    <p>Hello</p>
+    <p class="foo">New</p>
+    <p>World</p>
+    <button>
+        call
+    </button>
+    <script>
+        $('button').click(function(){
+        $('<b>Old</b>').replaceAll('p.foo')
+        }
+        )
+    </script>
+</body>
+</html>

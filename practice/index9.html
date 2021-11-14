@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src = 'http://code.jquery.com/jquery-latest.js'></script>
+    <style>
+        p {
+            margin:  4px;
+            font-size: 16px;
+            font-weight: bolder;
+            cursor :pointer;
+        }
+        .blue{
+            color : dodgerblue;
+        }
+        .highlight{
+            background: rgb(248, 245, 47, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <p class='blue'>click to toggle</p>
+    <p class='blue highlight'>highlight</p>
+    <p class='blue'>this</p>
+    <p class="blue">blue</p>
+    <script>
+        $('p').click(function(){
+            $(this).toggleClass("highlight")
+        })
+    </script>
+</body>
+</html>

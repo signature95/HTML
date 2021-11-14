@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src = 'http://code.jquery.com/jquery-latest.js'></script>
+    <style>
+        p {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        p 태그의 영역
+    </p>
+    <script>
+        $('p').after('<i>Hello</i>') // p 태그 밖에 i 태그로 들어가기 때문에 p 태그의 영역에 포함되지 않음.
+    </script>
+</body>

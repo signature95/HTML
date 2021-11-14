@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src = 'http://code.jquery.com/jquery-latest.js'></script>
+    <style>
+        p {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        p 태그의 영역
+    </p>
+    <script>
+        $('p').append('<i>Hello</i>') //p 태그 내에 append 시키므로 p의 영역 내에 들어가게 된다.
+    </script>
+</body>

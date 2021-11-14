@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src = 'http://code.jquery.com/jquery-latest.js'></script>
+    <style>
+        p {
+            background-color: rgb(207, 69, 150);
+            margin: 6px, 0px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Hello
+    </p>
+    how are
+    <p>
+        you?
+    </p>
+    <button>
+        call
+    </button>
+    <script>
+        $('button').click(function(){
+            $('p').remove()
+        }
+        )
+    </script>
+</body>
