@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src = 'http://code.jquery.com/jquery-latest.js'></script>
+</head>
+<body>
+    <input type="text" id="data_input">
+    <button id="bt1">Ajax_get</button>
+    <button id="bt2">Ajax_post</button>
+    <button id="bt3">getjson</button>
+    <p class="all"></p>
+    <p class="gender"></p>
+    <script>
+        $('#bt1').click(function(){
+            $.ajax({
+                url : "/ajax_get",
+                data : {
+                    message : $('#data_input').val()        // input에 있는 data를 서버에 보낼 것임.
+                },
+                method : 'GET',
+                dataType : 'json'
+            })
+            .done(function(result){     // 성공했을 때 알람
+                alert(result[0].data1)
+            })
+            .fail(function(xhr, status, error){ //에러 발생시 에러 메세지 출력
+                alert(error)
+            })
+            .always(function(xhr,status){
+                $('p').text('요청이 완료되었습니다.')   //항상 발생하는 것으로 p태그에 text를 출력해주는 것.
+            })
+        }
+        ) //ajax : url, data의 값, 매서드(get, post 등), data의 타입(웹 : text, json, xlm)을 입력해야 함.
+    </script>
+    <script>
+        $('#bt2').click(function(){
+            $.ajax({
+                url : "/ajax_post",
+                data : {
+                    message : $('#data_input').val()        // input에 있는 data를 서버에 보낼 것임.
+                },
+                method : 'post',
+                dataType : 'json'
+            })
+            .done(function(result){     // 성공했을 때 알람
+                alert(result[0].data1)
+            })
+            .fail(function(xhr, status, error){ //에러 발생시 에러 메세지 출력
+                alert(error)
+            })
+            .always(function(xhr,status){
+                $('p').text('요청이 완료되었습니다.')   //항상 발생하는 것으로 p태그에 text를 출력해주는 것.
+            })
+        }
+        ) //ajax : url, data의 값, 매서드(get, post 등), data의 타입(웹 : text, json, xlm)을 입력해야 함.
+        $('#bt3').click(function(){
+            // getJSON은 ()내에 url, data, function만 적어주면 끝임.
+            // 위는 url, data, method, data_type을 다 적고, 성공과 에러, always를 전부 입력해야 했지만, 이를 단축할 수 있다.
+            $.getJSON(      //getJSON으로 data형태는 json으로 받아오겠다고 하는 것. (text를 받는 경우, get만 적으면 됨.)
+                            //postJSON으로 한다면 json형태로 받고 post하겠다는 것
+                "/get_json",
+                {
+                    'message' : $('#data_input').val()
+                },
+                function(result, status, error){ //status 200은 성공을 의미함, 404는 페이지를 찾을 수 없다는 코드 에러임
+                    alert(status, error);
+                    $('p.all').text(result)
+                    $('p.gender').text(result[0][1])
+                }
+                )
+        })
+    </script>
+</body>
+</html>
+
+
+<!-- 
+    json : [{'name' : 'gh'
+            'phone' : '01012345678' ...
+            },
+            {'key1' : 'value1'
+            'key2' : 'value2' ...},
+            {'key1' : 'value1'
+            'key2' : 'value2' ...}] 와 같은 형태로 구성되어 있음.
+            따라서 gh라는 문자열을 출력하려면, json[0][0]으로 출력할 수 있었음 (파이썬에서)
+            하지만 js에서는 json[0].name으로 입력해야함. (변수명[몇번째항].키값 = value 출력)
+
+ -->
